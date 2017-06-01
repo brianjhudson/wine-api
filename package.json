@@ -1,0 +1,35 @@
+{
+  "name": "wine-api",
+  "version": "0.0.1",
+  "description": "This project is geared toward developing a proof of concept that pairs consumers with a wine delivery service from a local wine retailer. The focus of the project is from the logistical standpoint of a specific liqour retailer",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PalHudCros/groupproject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PalHudCros/groupproject/issues"
+  },
+  "homepage": "https://github.com/PalHudCros/groupproject#readme",
+  "dependencies": {
+    "axios": "^0.15.2",
+    "body-parser": "^1.15.2",
+    "connect-ensure-login": "^0.1.1",
+    "connect-mongodb-session": "^1.3.0",
+    "cors": "^2.8.3",
+    "express": "^4.14.0",
+    "express-jwt": "^5.1.0",
+    "express-session": "^1.14.1",
+    "jwt-decode": "^2.1.0",
+    "mongoose": "^4.6.5",
+    "path": "^0.12.7",
+    "socket.io": "^1.5.1"
+  },
+  "devDependencies": {}
+}
