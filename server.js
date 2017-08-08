@@ -32,7 +32,7 @@ app.use( session( Object.assign( {}, config.session, { store } ) ) );
 
 // Configure Mongoose
 const mongoose = require('mongoose');
-mongoose.connect(config.database.mongoURI);
+mongoose.connect(config.database.mongoURI, {useMongoClient: true});
 mongoose.connection.once("open", () => console.log('WINE database now connected!'));
 
 // Configure Routes
