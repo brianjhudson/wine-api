@@ -58,5 +58,8 @@ module.exports = (app) => {
       // jwt({secret: new Buffer(config.auth0.secret, 'base64'), audience: config.auth0.audience}),
       orderCtrl.setDeliveredStatus, orderCtrl.getOrderByDriver
     )
-
+  app.route('/api/orders/data/topsellers')
+    .get(
+      orderCtrl.getTopSellers
+    )
 }

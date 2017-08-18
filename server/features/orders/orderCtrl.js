@@ -142,4 +142,24 @@ module.exports = {
       next();
     })
   }
+
+  , getTopSellers(req, res, next) {
+    
+    Order.aggregate([
+      {$project: {_id: 0, products: {item: 1, quantity: 1}}}, 
+      {$unwind: "$products"}, 
+      {$group: {_id: "$products.item", qty: {$sum: 1}}},
+      {$sort: {qty: -1}},
+      {$limit: 5}
+    ])
+    .then(result => {
+      return Promise.all(result.map(product => {
+        return InventoryItem.findById(product._id, {Name: 1})
+        .then(item => ({_id: item._id, Name: item.Name, quantity: product.qty}))
+      }))
+    })
+    .then(newResult => {
+      res.send(newResult)
+    })   
+  }
 }
